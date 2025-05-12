@@ -1,0 +1,57 @@
+ML Book Reviews Classification
+
+📌 Project Overview
+
+This project is a machine learning model that classifies book reviews as either positive or negative using a pre-trained BERT model from Hugging Face.
+
+🚀 Technologies Used
+
+Python
+
+Hugging Face Transformers
+
+Datasets (Hugging Face)
+
+PyTorch
+
+📁 Project Structure
+
+- model/                # Saved fine-tuned model and tokenizer
+- results/              # Training results and logs
+- logs/                 # Training logs
+- ML_Book_Reviews_Classification.py  # Main training script
+- README.md             # Project documentation
+
+⚡ How to Run
+
+Clone the repository:
+
+git clone [REPOSITORY_URL]
+cd ML_Book_Reviews_Classification
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Run the training script:
+
+python ML_Book_Reviews_Classification.py
+
+The trained model will be saved in the model/ directory.
+
+✅ Usage
+
+To use the trained model for prediction:
+
+from transformers import BertTokenizer, BertForSequenceClassification
+import torch
+
+model = BertForSequenceClassification.from_pretrained('./model')
+tokenizer = BertTokenizer.from_pretrained('./model')
+
+text = "This book is amazing!"
+inputs = tokenizer(text, return_tensors='pt')
+outputs = model(**inputs)
+logits = outputs.logits
+prediction = torch.argmax(logits, dim=1).item()
+print("Positive" if prediction == 1 else "Negative")
