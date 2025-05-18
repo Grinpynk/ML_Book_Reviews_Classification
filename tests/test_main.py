@@ -1,12 +1,12 @@
 
-import pytest
 import pandas as pd
-from ml_book_reviews_classification.main import pd, TfidfVectorizer, LogisticRegression
+from ml_book_reviews_classification.main import TfidfVectorizer, LogisticRegression
 
 def test_data_loading():
     data = pd.read_csv('ml_book_reviews_classification/data/reviews.csv')
     assert not data.empty, "Датасет не должен быть пустым"
     assert 'review' in data.columns, "Датасет должен содержать колонку 'review'"
+
 
 def test_model_prediction():
     reviews = ["Отличная книга!", "Не понравилось"]
