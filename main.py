@@ -1,7 +1,5 @@
 
 # PEP 8 форматированный код для ML_Book_Reviews_Classification
-import os
-import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -18,7 +16,9 @@ X = data['review']  # Тексты отзывов
 y = data['sentiment']  # Метки классов
 
 # Разделяем данные на обучающую и тестовую выборки
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
 
 # Преобразуем текстовые данные в числовой формат (TF-IDF)
 tfidf = TfidfVectorizer(max_features=5000)
