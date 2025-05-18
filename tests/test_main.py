@@ -2,6 +2,7 @@
 import pandas as pd
 from ml_book_reviews_classification.main import TfidfVectorizer, LogisticRegression
 
+
 def test_data_loading():
     data = pd.read_csv('ml_book_reviews_classification/data/reviews.csv')
     assert not data.empty, "Датасет не должен быть пустым"
